@@ -1,0 +1,15 @@
+{
+    "name": "Scrub Kafka Listener",
+    "description": "Simple viewer that appens Kafka messages from a topic into a ul",
+    "repository": "https://github.com/cowie/simpleKafkaListener",
+    "env":{
+        "KAFKA_TOPIC":{
+            "description":"The name of the topic to monitor",
+            "value":""
+        },
+        "KAFKA_PREFIX":{
+            "description":"(If Nec.)The prefix if using a shared tenant Kafka",
+            "value":""
+        }
+    }
+}

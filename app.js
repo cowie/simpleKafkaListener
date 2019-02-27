@@ -1,3 +1,4 @@
+
 const express = require('express');
 const socketIO = require('socket.io');
 const path = require('path');
@@ -17,6 +18,7 @@ const consumer = new Kafka.SimpleConsumer({
 
 const PORT = process.env.PORT || 3000;
 const INDEX = path.join(__dirname, 'index.html');
+
 
 const server = express()
   .use('/', (req, res) => res.sendFile(INDEX) )
@@ -41,5 +43,5 @@ const dataHandler = function(messageSet, topic, partition){
     });
 };
 return consumer.init().then(function(){
-    return consumer.subscribe(`${process.env.KAFKA_PREFIX}caseActivity`, [0,1], dataHandler);
+    return consumer.subscribe(`${process.env.KAFKA_PREFIX}${process.env.KAFKA_TOPIC}`, [0,1], dataHandler);
 })
