@@ -5,11 +5,13 @@
     "env":{
         "KAFKA_TOPIC":{
             "description":"The name of the topic to monitor",
-            "value":""
+            "value":"",
+            "required":false
         },
         "KAFKA_PREFIX":{
             "description":"(If Nec.)The prefix if using a shared tenant Kafka",
-            "value":""
+            "value":"",
+            "required":false 
         }
     }
 }
