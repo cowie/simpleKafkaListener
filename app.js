@@ -39,8 +39,8 @@ const dataHandler = function(messageSet, topic, partition){
         //console.log(topic, partition, m.offset, m.message.value.toString('utf8'));
         console.log("message found");
         let eP = JSON.parse(m.message.value.toString('utf8')).payload.after;
-        console.log(eP.billingcountry);
-        /*
+        //console.log(eP.billingcountry);
+        
         pool.connect((err, client, done) => {
           //eventPayload shortcut
           if(err) throw err;
@@ -54,7 +54,7 @@ const dataHandler = function(messageSet, topic, partition){
             }
           });
         });
-        */
+        
         
     });
 };
