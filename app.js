@@ -54,7 +54,7 @@ const dataHandler = function(messageSet, topic, partition){
             }
           });
         });
-        /*
+        */
         
     });
 };
