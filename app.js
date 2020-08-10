@@ -44,7 +44,7 @@ const dataHandler = function(messageSet, topic, partition){
         pool.connect((err, client, done) => {
           //eventPayload shortcut
           if(err) throw err;
-          client.query('INSERT INTO "account"(billingcountry,accountsource,billingpostalcode,billingcity,billingstate,description,billinglatitude,website,phone,fax,billingstreet,,external_id__c,name,billinglongitude,sfid,score__c) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16)',
+          client.query('INSERT INTO "account"(billingcountry,accountsource,billingpostalcode,billingcity,billingstate,description,billinglatitude,website,phone,fax,billingstreet,external_id__c,name,billinglongitude,sfid,score__c) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16)',
           [eP.billingcountry,eP.accountsource,eP.billingpostalcode,eP.billingcity,eP.billingstate,eP.description,eP.billinglatitude,eP.website,eP.phone,eP.fax,eP.billingstreet,,eP.external_id__c,eP.name,eP.billinglongitude,eP.sfid,eP.score__c], (err, res) => {
             done();
             if(err){
