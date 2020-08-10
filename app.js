@@ -16,15 +16,18 @@ const consumer = new Kafka.SimpleConsumer({
     },
 });
 
-const pool = new Pool();
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+  ssl:{
+    rejectUnauthorized:false
+  }
+});
 pool.on('error', (err, client) => {
-  console.error('Had an error on the PG idle client', err);
-  process.exit(-1);
+  console.error('Had an error on the PG idle pool', err);
 });
 
 const PORT = process.env.PORT || 3000;
 const INDEX = path.join(__dirname, 'index.html');
-
 
 const server = express()
   .use('/', (req, res) => res.sendFile(INDEX) )
@@ -51,5 +54,6 @@ const dataHandler = function(messageSet, topic, partition){
     });
 };
 return consumer.init().then(function(){
+  console.log(`${process.env.KAFKA_PREFIX}${process.env.KAFKA_TOPIC}`)
     return consumer.subscribe(`${process.env.KAFKA_PREFIX}${process.env.KAFKA_TOPIC}`, [0,1], dataHandler);
 })
