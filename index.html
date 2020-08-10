@@ -1,17 +1,5 @@
 <html>
   <body>
-    <ul id='daMessages'></p>
-    <script src="/socket.io/socket.io.js"></script>
-    <script>
-      var socket = io();
-      var el = document.getElementById('daMessages');
-      socket.on('update', function(message) {
-        //el.innerHTML = 'Server time: ' + message;
-        var node = document.createElement("LI");
-        var textNode = document.createTextNode(message);
-        node.appendChild(textNode);
-        el.appendChild(node);
-      });
-    </script>
+    
   </body>
 </html>
