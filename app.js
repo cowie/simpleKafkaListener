@@ -40,7 +40,7 @@ const dataHandler = function(messageSet, topic, partition){
         console.log("message found");
         let eP = JSON.parse(m.message.value.toString('utf8'));
         console.log(eP);
-        
+        /*
         pool.connect((err, client, done) => {
           //eventPayload shortcut
           if(err) throw err;
@@ -54,6 +54,7 @@ const dataHandler = function(messageSet, topic, partition){
             }
           });
         });
+        /*
         
     });
 };
