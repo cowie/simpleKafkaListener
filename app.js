@@ -38,8 +38,8 @@ const dataHandler = function(messageSet, topic, partition){
         //do stuff
         //console.log(topic, partition, m.offset, m.message.value.toString('utf8'));
         console.log("message found");
-        let eP = JSON.parse(m.message.value.toString('utf8'));
-        console.log(eP.payload.billingcountry);
+        let eP = JSON.parse(m.message.value.toString('utf8')).payload.after;
+        console.log(eP.billingcountry);
         /*
         pool.connect((err, client, done) => {
           //eventPayload shortcut
